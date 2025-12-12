@@ -8,11 +8,15 @@ const Header = () => {
         Savoré<span>.</span>
       </NavLink>
       <div className="nav-links" id="navLinks">
-        <NavLink to="#">Home</NavLink>
-        <NavLink to="#">Menu</NavLink>
-        <NavLink to="#">About</NavLink>
-        <NavLink to="#">Contact</NavLink>
-        <NavLink to="#" className="btn" style={{ padding: "12px 28px" }}>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/menu">Menu</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+        <NavLink
+          to="/reserve-table"
+          className="btn"
+          style={{ padding: "12px 28px" }}
+        >
           Reserve Table
         </NavLink>
       </div>
