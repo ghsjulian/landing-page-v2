@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Savoré - Premium Dining Experience</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #27ae60;     /* Emerald Green */
+      --secondary: #f39c12;   /* Warm Gold/Orange */
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+      --gray: #7f8c8d;
+      --bg: #fafafa;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: var(--bg);
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .logo span { color: var(--secondary); }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0; height: 2px;
+      bottom: -8px; left: 0;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .mobile-menu { display: none; font-size: 1.8rem; cursor: pointer; color: var(--dark); }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+                  url('https://media.istockphoto.com/id/603267744/photo/tapas-food.jpg?s=612x612&w=0&k=20&c=kHdCs_6B9YizzPkuynSpgJnTf8m37xsAQ6czvu0cXBU=') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+    .hero-content h1 {
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+    .hero-content p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.95;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.4s;
+      box-shadow: 0 10px 30px rgba(39,174,96,0.35);
+    }
+    .btn:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(243,156,18,0.4);
+    }
+
+    /* Section General */
+    section { padding: 100px 5%; }
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+    .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+
+    /* Menu Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .dish-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .dish-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .dish-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .dish-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .dish-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .dish-price {
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* About & Why Us Grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about-img {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .about-img:hover img { transform: scale(1.08); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-10px); }
+    .feature-card i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 4rem 5%;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { 
+        position: fixed;
+        top: 80px; left: -100%;
+        width: 100%; height: 100vh;
+        background: white;
+        flex-direction: column;
+        padding-top: 5rem;
+        transition: 0.4s;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      }
+      .nav-links.active { left: 0; }
+      .mobile-menu { display: block; }
+
+      .hero-content h1 { font-size: 3rem; }
+      .hero-content p { font-size: 1.1rem; }
+
+      .section-title { font-size: 2.4rem; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="logo">Savoré<span>.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#" class="btn" style="padding: 12px 28px;">Reserve Table</a>
+    </div>
+    <div class="mobile-menu" id="mobileMenu"><i class="fas fa-bars"></i></div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Experience Culinary Excellence</h1>
+      <p>Fresh, seasonal ingredients crafted into unforgettable dishes by our award-winning chefs.</p>
+      <a href="#" class="btn">View Full Menu</a>
+    </div>
+  </section>
+
+  <!-- Featured Menu -->
+  <section style="background: white;">
+    <h2 class="section-title">Our Signature Dishes</h2>
+    <p class="section-subtitle">Handcrafted masterpieces that keep our guests coming back</p>
+
+    <div class="menu-grid">
+      <div class="dish-card">
+        <img src="https://assets.epicurious.com/photos/554cb4bf9a0aa705333ea403/master/w_2000,h_1334,c_limit/109533_grilled-salmon-with-basil-and-mint_6x4.jpg" alt="Grilled Salmon" class="dish-img">
+        <div class="dish-info">
+          <h3 class="dish-title">Herb-Grilled Salmon</h3>
+          <p class="dish-price">$24.99</p>
+        </div>
+      </div>
+
+      <div class="dish-card">
+        <img src="https://thumbs.dreamstime.com/z/colorful-fresh-sushi-platter-showcasing-japanese-food-cuisine-culinary-art-delicious-visually-appealing-meal-372945900.jpg" alt="Sushi Platter" class="dish-img">
+        <div class="dish-info">
+          <h3 class="dish-title">Deluxe Sushi Platter</h3>
+          <p class="dish-price">$32.99</p>
+        </div>
+      </div>
+
+      <div class="dish-card">
+        <img src="https://www.allrecipes.com/thmb/cuDcxfQAvVOALbKcdoIzXPwqQMo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4499842-257380-AR-spaghetti-alla-carbonara-tradizionali-buckwheat-queen-4x3-eb4e48956fbd4277adcc3556e3bf6ecc.jpg" alt="Carbonara" class="dish-img">
+        <div class="dish-info">
+          <h3 class="dish-title">Classic Carbonara</h3>
+          <p class="dish-price">$18.99</p>
+        </div>
+      </div>
+
+      <div class="dish-card">
+        <img src="https://thumbs.dreamstime.com/b/colorful-mexican-street-food-platter-featuring-tacos-al-pastor-lime-wedges-grilled-onions-fresh-cilantro-rustic-clay-418796147.jpg" alt="Tacos" class="dish-img">
+        <div class="dish-info">
+          <h3 class="dish-title">Street Tacos Trio</h3>
+          <p class="dish-price">$16.99</p>
+        </div>
+      </div>
+
+      <div class="dish-card">
+        <img src="https://images.getrecipekit.com/20250325120225-how-20to-20make-20chocolate-20molten-20lava-20cake-20in-20the-20microwave.png?width=650&quality=90&" alt="Lava Cake" class="dish-img">
+        <div class="dish-info">
+          <h3 class="dish-title">Molten Chocolate Lava</h3>
+          <p class="dish-price">$12.99</p>
+        </div>
+      </div>
+
+      <div class="dish-card">
+        <img src="https://img.freepik.com/premium-photo/shot-chef-cooking-professional-kitchen_579247-45.jpg" alt="Chef Special" class="dish-img">
+        <div class="dish-info">
+          <h3 class="dish-title">Chef's Daily Special</h3>
+          <p class="dish-price">$28.99</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section style="background: var(--light);">
+    <h2 class="section-title">Our Story</h2>
+    <p class="section-subtitle">Passion for food, dedication to excellence since 2015</p>
+
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="https://www.shutterstock.com/image-photo/diversity-dining-table-friends-taking-260nw-2305705191.jpg" alt="Happy guests dining">
+      </div>
+      <div>
+        <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary);">Where Flavor Meets Elegance</h3>
+        <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #555;">
+          At Savoré, we believe every meal is an experience. Our chefs source the finest local and international ingredients to create dishes that delight the senses.
+        </p>
+        <p style="color: #555;">
+          From intimate dinners to grand celebrations, our warm ambiance and impeccable service make every visit memorable.
+        </p>
+        <a href="#" class="btn" style="margin-top: 2rem;">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section style="background: white;">
+    <h2 class="section-title">Why Guests Love Us</h2>
+    <p class="section-subtitle">What sets us apart from the rest</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-leaf"></i>
+        <h3>Fresh Ingredients</h3>
+        <p>Farm-to-table produce and sustainably sourced proteins daily.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-utensils"></i>
+        <h3>Expert Chefs</h3>
+        <p>Award-winning culinary team with decades of experience.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-wine-glass"></i>
+        <h3>Perfect Ambiance</h3>
+        <p>Elegant yet cozy setting for any occasion.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-star"></i>
+        <h3>5-Star Service</h3>
+        <p>Attentive staff dedicated to making your visit exceptional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Savoré Restaurant. Made with ❤️ for food lovers.</p>
+  </footer>
+
+  <script>
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = mobileMenu.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+  </script>
+</body>
+</html>

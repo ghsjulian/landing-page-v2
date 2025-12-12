@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Savoré Restaurant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #27ae60;     /* Emerald Green */
+      --secondary: #f39c12;   /* Warm Gold/Orange */
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+      --gray: #7f8c8d;
+      --bg: #fafafa;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; background:var(--bg); color:#333; line-height:1.6; }
+    .navbar { position:fixed; top:0; width:100%; background:rgba(255,255,255,0.95); backdrop-filter:blur(12px); z-index:1000; padding:1.2rem 5%; display:flex; justify-content:space-between; align-items:center; box-shadow:0 4px 30px rgba(0,0,0,0.08); transition:all .3s; }
+    .logo { font-size:2rem; font-weight:800; color:var(--primary); text-decoration:none; }
+    .logo span { color:var(--secondary); }
+    .nav-links { display:flex; gap:3rem; align-items:center; }
+    .nav-links a { text-decoration:none; color:var(--dark); font-weight:500; position:relative; transition:color .3s; }
+    .nav-links a:hover { color:var(--primary); }
+    .nav-links a::after { content:''; position:absolute; width:0; height:2px; bottom:-8px; left:0; background:var(--primary); transition:width .3s; }
+    .nav-links a:hover::after { width:100%; }
+    .mobile-menu { display:none; font-size:1.8rem; cursor:pointer; color:var(--dark); }
+
+    .hero { height:70vh; background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+             url('https://images.unsplash.com/photo-1517248135467-10528d0f6b1f?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
+             display:flex; align-items:center; justify-content:center; text-align:center; color:white; }
+    .hero h1 { font-size:4rem; font-weight:800; margin-bottom:1rem; }
+    .hero p { font-size:1.3rem; max-width:700px; opacity:0.95; }
+
+    section { padding:100px 5%; }
+    .section-title { text-align:center; font-size:3rem; margin-bottom:1.5rem; color:var(--dark); }
+    .section-subtitle { text-align:center; max-width:700px; margin:0 auto 4rem; color:var(--gray); font-size:1.1rem; }
+
+    .story-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(350px,1fr)); gap:4rem; max-width:1200px; margin:0 auto; align-items:center; }
+    .story-img { border-radius:20px; overflow:hidden; box-shadow:0 15px 40px rgba(0,0,0,0.15); }
+    .story-img img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+    .story-img:hover img { transform:scale(1.1); }
+
+    .team-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:2.5rem; max-width:1300px; margin:4rem auto 0; }
+    .chef-card { background:white; border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.1); transition:all .4s; text-align:center; }
+    .chef-card:hover { transform:translateY(-15px); }
+    .chef-img { width:100%; height:320px; object-fit:cover; }
+    .chef-info { padding:1.8rem; }
+    .chef-name { font-size:1.5rem; color:var(--dark); margin-bottom:0.5rem; }
+    .chef-role { color:var(--primary); font-weight:600; }
+
+    .values-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:2.5rem; max-width:1200px; margin:4rem auto 0; }
+    .value-card { background:white; padding:2.5rem; text-align:center; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:all .3s; }
+    .value-card:hover { transform:translateY(-10px); }
+    .value-card i { font-size:3.5rem; color:var(--primary); margin-bottom:1rem; }
+
+    .btn { display:inline-block; background:var(--primary); color:white; padding:15px 35px; border-radius:50px; text-decoration:none; font-weight:600; transition:all .4s; box-shadow:0 10px 30px rgba(39,174,96,0.35); }
+    .btn:hover { background:var(--secondary); transform:translateY(-5px); box-shadow:0 15px 40px rgba(243,156,18,0.4); }
+
+    footer { background:var(--dark); color:white; text-align:center; padding:4rem 5%; }
+
+    @media (max-width:768px) {
+      .nav-links { position:fixed; top:80px; left:-100%; width:100%; height:100vh; background:white; flex-direction:column; padding-top:5rem; transition:.4s; }
+      .nav-links.active { left:0; }
+      .mobile-menu { display:block; }
+      .hero h1 { font-size:2.8rem; }
+      .section-title { font-size:2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">Savoré<span>.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="#" class="btn" style="padding:12px 28px;">Reserve Table</a>
+    </div>
+    <div class="mobile-menu" id="mobileMenu"><i class="fas fa-bars"></i></div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <h1>About Savoré</h1>
+      <p>Where passion for food meets exceptional hospitality</p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section style="background:white;">
+    <h2 class="section-title">Our Journey</h2>
+    <p class="section-subtitle">From a small dream in 2015 to your favorite dining destination</p>
+
+    <div class="story-grid">
+      <div class="story-img">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Restaurant interior">
+      </div>
+      <div>
+        <h3 style="font-size:2.2rem; color:var(--primary); margin-bottom:1rem;">Crafted with Love Since 2015</h3>
+        <p style="margin-bottom:1.5rem; font-size:1.1rem;">
+          Founded by Chef Elena Moreau, Savoré began as a cozy 30-seat bistro with one mission: to serve honest, flavorful food made from the finest seasonal ingredients.
+        </p>
+        <p style="margin-bottom:1.5rem; font-size:1.1rem;">
+          Ten years and thousands of happy guests later, we’ve grown into an award-winning restaurant while staying true to our roots — fresh, local, sustainable, and absolutely delicious.
+        </p>
+        <a href="contact.html" class="btn">Book Your Table</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section style="background:var(--light);">
+    <h2 class="section-title">Meet Our Team</h2>
+    <p class="section-subtitle">The talented people behind every unforgettable meal</p>
+
+    <div class="team-grid">
+      <div class="chef-card">
+        <img src="https://images.unsplash.com/photo-1583394838336-4b3c9f9d4c0a?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Chef Elena" class="chef-img">
+        <div class="chef-info">
+          <h3 class="chef-name">Elena Moreau</h3>
+          <p class="chef-role">Executive Chef & Founder</p>
+        </div>
+      </div>
+      <div class="chef-card">
+        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f10292b0?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Chef Marco" class="chef-img">
+        <div class="chef-info">
+          <h3 class="chef-name">Marco Rossi</h3>
+          <p class="chef-role">Head Chef</p>
+        </div>
+      </div>
+      <div class="chef-card">
+        <img src="https://images.unsplash.com/photo-1577219492769-2c1e2d8f2b5a?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Chef Sofia" class="chef-img">
+        <div class="chef-info">
+          <h3 class="chef-name">Sofia Chen</h3>
+          <p class="chef-role">Pastry Chef</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section style="background:white;">
+    <h2 class="section-title">Our Values</h2>
+    <p class="section-subtitle">What we stand for, in every dish we serve</p>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="fas fa-leaf"></i>
+        <h3>Sustainable</h3>
+        <p>Local farms, ethical sourcing, zero waste kitchen.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-heart"></i>
+        <h3>Passion</h3>
+        <p>Every plate is made with love and creativity.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-handshake"></i>
+        <h3>Hospitality</h3>
+        <p>You’re not a customer — you’re family.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Savoré Restaurant. Made with ❤️ for food lovers.</p>
+  </footer>
+
+  <script>
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navLinks = document.getElementById('navLinks');
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenu.querySelector('i').classList.toggle('fa-bars');
+      mobileMenu.querySelector('i').classList.toggle('fa-times');
+    });
+  </script>
+</body>
+</html>
