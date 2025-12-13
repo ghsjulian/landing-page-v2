@@ -101,7 +101,8 @@ body {
   justify-content: center;
   text-align: center;
   color: white;
-  padding: 0 20px;
+  padding: 30px 20px;
+  margin-top: 5rem;
 }
 .hero-content h1 {
   font-size: 4.5rem;
@@ -239,12 +240,19 @@ section {
 
 /* Footer */
 footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.5rem;
   background: var(--dark);
   color: white;
   text-align: center;
   padding: 4rem 5%;
 }
-
+footer a {
+  text-decoration: none;
+  color: rgb(7, 238, 26);
+  font-weight: 800;
+}
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
@@ -265,9 +273,12 @@ footer {
   .mobile-menu {
     display: block;
   }
-
+  .hero {
+    margin-top: 3rem;
+    height: 100vh;
+  }
   .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .hero-content p {
     font-size: 1.1rem;

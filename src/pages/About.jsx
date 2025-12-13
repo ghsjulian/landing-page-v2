@@ -10,7 +10,7 @@ const About = () => {
           <p>Where passion for food meets exceptional hospitality</p>
         </div>
       </section>
-      <section style="background:white;">
+      <section style={{ background: "white" }}>
         <h2 className="section-title">Our Journey</h2>
         <p className="section-subtitle">
           From a small dream in 2015 to your favorite dining destination
