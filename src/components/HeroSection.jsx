@@ -10,7 +10,7 @@ const HeroSection = () => {
           Fresh, seasonal ingredients crafted into unforgettable dishes by our
           award-winning chefs.
         </p>
-        <NavLink to="#" className="btn">
+        <NavLink to="/menu" className="btn">
           View Full Menu
         </NavLink>
       </div>
