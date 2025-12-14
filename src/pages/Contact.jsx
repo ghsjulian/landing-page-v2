@@ -68,9 +68,10 @@ const Contact = () => {
       </div>
       <div className="map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.24126418748!2d-73.988231685177!3d40.748440979328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a31f5f3!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1698765432100!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1381!2d91.8119636!3d24.280868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37517863f0495253%3A0x4c7363f131d34338!2sMadhabpur+Lake!5e0!3m2!1sen!2sbd!4v1734150000000"
           allowfullscreen=""
           loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
     </>
