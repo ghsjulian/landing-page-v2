@@ -17,7 +17,7 @@ const FeaturedMenu = () => {
           />
           <div className="dish-info">
             <h3 className="dish-title">Herb-Grilled Salmon</h3>
-            <p className="dish-price">$24.99</p>
+            <p className="dish-price">24.99TK</p>
           </div>
         </div>
 
@@ -29,7 +29,7 @@ const FeaturedMenu = () => {
           />
           <div className="dish-info">
             <h3 className="dish-title">Deluxe Sushi Platter</h3>
-            <p className="dish-price">$32.99</p>
+            <p className="dish-price">32.99TK</p>
           </div>
         </div>
 
@@ -41,7 +41,7 @@ const FeaturedMenu = () => {
           />
           <div className="dish-info">
             <h3 className="dish-title">Classic Carbonara</h3>
-            <p className="dish-price">$18.99</p>
+            <p className="dish-price">18.99TK</p>
           </div>
         </div>
 
@@ -53,7 +53,7 @@ const FeaturedMenu = () => {
           />
           <div className="dish-info">
             <h3 className="dish-title">Street Tacos Trio</h3>
-            <p className="dish-price">$16.99</p>
+            <p className="dish-price">16.99TK</p>
           </div>
         </div>
 
@@ -65,7 +65,7 @@ const FeaturedMenu = () => {
           />
           <div className="dish-info">
             <h3 className="dish-title">Molten Chocolate Lava</h3>
-            <p className="dish-price">$12.99</p>
+            <p className="dish-price">12.99TK</p>
           </div>
         </div>
 
@@ -77,7 +77,7 @@ const FeaturedMenu = () => {
           />
           <div className="dish-info">
             <h3 className="dish-title">Chef's Daily Special</h3>
-            <p className="dish-price">$28.99</p>
+            <p className="dish-price">28.99TK</p>
           </div>
         </div>
       </div>

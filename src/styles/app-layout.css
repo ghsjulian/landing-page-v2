@@ -101,17 +101,17 @@ body {
   justify-content: center;
   text-align: center;
   color: white;
-  padding: 30px 20px;
-  margin-top: 5rem;
+  padding: 50px 20px;
+  margin-top: 6rem;
 }
 .hero-content h1 {
-  font-size: 4.5rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
   font-weight: 800;
 }
 .hero-content p {
   font-size: 1.4rem;
-  max-width: 700px;
+  width: 90%;
   margin: 0 auto 2.5rem;
   opacity: 0.95;
 }
@@ -140,7 +140,7 @@ section {
 }
 .section-title {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   color: var(--dark);
 }

@@ -23,7 +23,7 @@ const Menu = () => {
                 Toasted bread topped with fresh tomatoes, basil, garlic, and
                 olive oil.
               </p>
-              <span className="menu-price">$9.99</span>
+              <span className="menu-price">9.99TK</span>
             </div>
           </div>
           <div className="menu-item">
@@ -38,7 +38,7 @@ const Menu = () => {
                 Lightly fried squid rings served with spicy marinara and lemon
                 aioli.
               </p>
-              <span className="menu-price">$12.99</span>
+              <span className="menu-price">12.99TK</span>
             </div>
           </div>
           <div className="menu-item">
@@ -52,7 +52,7 @@ const Menu = () => {
               <p className="menu-desc">
                 Chef's daily creation using fresh seasonal ingredients.
               </p>
-              <span className="menu-price">$8.99</span>
+              <span className="menu-price">8.99TK</span>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@ const Menu = () => {
                 Atlantic salmon with lemon herb butter, served with roasted
                 vegetables and quinoa.
               </p>
-              <span className="menu-price">$24.99</span>
+              <span className="menu-price">24.99TK</span>
             </div>
           </div>
           <div className="menu-item">
@@ -87,7 +87,7 @@ const Menu = () => {
                 12oz premium ribeye grilled to perfection with garlic mashed
                 potatoes and asparagus.
               </p>
-              <span className="menu-price">$34.99</span>
+              <span className="menu-price">34.99TK</span>
             </div>
           </div>
           <div className="menu-item">
@@ -102,7 +102,7 @@ const Menu = () => {
                 Handmade fettuccine with wild mushrooms, truffle oil, and
                 parmesan cream sauce.
               </p>
-              <span className="menu-price">$21.99</span>
+              <span className="menu-price">21.99TK</span>
             </div>
           </div>
           <div className="menu-item">
@@ -117,7 +117,7 @@ const Menu = () => {
                 House-ground beef patty, aged cheddar, caramelized onions, and
                 secret sauce.
               </p>
-              <span className="menu-price">$18.99</span>
+              <span className="menu-price">18.99TK</span>
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@ const Menu = () => {
                 Layers of espresso-soaked ladyfingers and mascarpone cream,
                 dusted with cocoa.
               </p>
-              <span className="menu-price">$9.99</span>
+              <span className="menu-price">9.99TK</span>
             </div>
           </div>
           <div className="menu-item">
@@ -152,7 +152,7 @@ const Menu = () => {
                 Warm chocolate cake with gooey center, served with vanilla ice
                 cream.
               </p>
-              <span className="menu-price">$11.99</span>
+              <span className="menu-price">11.99TK</span>
             </div>
           </div>
           <div className="menu-item">
@@ -166,7 +166,7 @@ const Menu = () => {
               <p className="menu-desc">
                 Creamy cheesecake with berry compote and graham cracker crust.
               </p>
-              <span className="menu-price">$10.99</span>
+              <span className="menu-price">10.99TK</span>
             </div>
           </div>
         </div>

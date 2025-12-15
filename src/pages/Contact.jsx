@@ -19,9 +19,9 @@ const Contact = () => {
             <div>
               <strong>Address</strong>
               <br />
-              456 Gourmet Street
+              Madhabpur Lake Road
               <br />
-              Downtown Culinary District
+              Komolgonj, Maulovibazar
             </div>
           </div>
           <div className="info-item">
@@ -29,7 +29,7 @@ const Contact = () => {
             <div>
               <strong>Phone</strong>
               <br />
-              +1 (555) 123-4567
+              +8801712375356
             </div>
           </div>
           <div className="info-item">
@@ -45,11 +45,11 @@ const Contact = () => {
             <div>
               <strong>Hours</strong>
               <br />
-              Mon–Thu: 11am – 10pm
+              Mon–Thu: 08AM – 10PM
               <br />
-              Fri–Sat: 11am – 11pm
+              Fri–Sat: 10AM – 10PM
               <br />
-              Sunday: 12pm – 9pm
+              Sunday: 12PM – 09PM
             </div>
           </div>
         </div>
